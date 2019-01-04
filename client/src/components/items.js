@@ -12,7 +12,7 @@ class Items extends Component {
   componentDidMount() {
     fetch('/api/items')
       .then(res => res.json())
-      .then(customers => this.setState({items}, () => console.log('Items fetched...', items)));
+      .then(items => this.setState({items}, () => console.log('Items fetched...', items)));
   }
 
   render() {
@@ -21,7 +21,7 @@ class Items extends Component {
         <h2>Items</h2>
         <ul>
         {this.state.items.map(item => 
-          <li key={item.id}>{item.firstName} {item.lastName}</li>
+          <li key={item._id}>{item.name}</li>
         )}
         </ul>
       </div>
